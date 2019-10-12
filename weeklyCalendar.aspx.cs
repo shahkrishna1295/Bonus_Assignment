@@ -31,33 +31,39 @@ namespace Assignment2_N01318294_ServerControls
                     DateTime dt = new DateTime(2019, month, 1);
                     int day = 1;
                     
-
+                    //for the month of october
                     while (dt.Month == month )
                     {
                         //weekly_summary.InnerHtml += "Oct " + dt.Day + " is a " + dt.DayOfWeek + "!" + "Time to have fun!" + "<br/>";
                         
-                            //gathering the list item selected
-                            foreach (ListItem workDays in workdays.Items)
+                        //gathering the list item selected
+                        foreach (ListItem workDays in workdays.Items)
+                        {
+                            //just to start the day from tuesday
+                            //here it skips the first value of the workday list i.e monday
+                            if (day == 1 && workDays.Value == "Monday")
                             {
-                                if (day == 1 && workDays.Value == "Monday")
+                                continue;
+                            }
+                            
+                            //increment dates
+                            if (day <= 31)
+                            {
+                                //check which day is selected and if selected display as work day 
+                                if (workDays.Selected == true)
                                 {
-                                    continue;
-                                }
-                                //comapring the values
-                                if (day <= 31)
-                                {
-                                    if (workDays.Selected == true)
-                                    {
-                                        weekly_summary.InnerHtml += "Oct " + day + " is a " + workDays.Text + "!" + "Time to work!" + "<br/>";
+                                    weekly_summary.InnerHtml += "Oct " + day + " is a " + workDays.Text + "!" + "Time to work!" + "<br/>";
 
-                                    }
-                                    else
-                                    {
-                                        weekly_summary.InnerHtml += "Oct " + day + " is a " + workDays.Text + "!" + "Time to have fun!" + "<br/>";
-                                    }
-                                    day += 1;
                                 }
-                            }                       
+
+                                //print as fun day for not selected days
+                                else
+                                {
+                                    weekly_summary.InnerHtml += "Oct " + day + " is a " + workDays.Text + "!" + "Time to have fun!" + "<br/>";
+                                }
+                                day += 1;
+                            }
+                        }                       
                         
                         dt = dt.AddDays(7);
                         

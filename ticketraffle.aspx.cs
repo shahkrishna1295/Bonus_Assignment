@@ -16,12 +16,12 @@ namespace Assignment2_N01318294_ServerControls
                 Page.Validate();
                 if (Page.IsValid)
                 {
+                    //clearing the history
                     ticketSummary.InnerHtml += "";
 
                     int tickets = Convert.ToInt32(ticketNumber.Text);
                     double cost = 0.25;
                     int i;
-
 
                     //ticketSummary.InnerHtml += "You recieved a bundle of " + (tickets/tickets) + "! " + "Thats " + (i+1) + "tickets." + "<br/>";
 
@@ -75,6 +75,7 @@ namespace Assignment2_N01318294_ServerControls
                     //formulating the input tickets under more than 300
                     else
                     {
+                        //bundeling the tickets indivisually and printing the summary
                         for (i = 5; i <= tickets; i += 5)
                         {
                             ticketSummary.InnerHtml += "You recieved a bundle of 5! " + "Thats " + (i) + " ticket(s)." + "<br/>";

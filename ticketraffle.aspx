@@ -9,6 +9,9 @@
 <body>
     <form id="form1" runat="server">
         <div>
+            <h1>Ticket Raffle</h1>
+        </div>
+        <div>
             <h2>Please enter number of tickets</h2>
             <asp:TextBox runat="server" ID="ticketNumber"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" EnableClientScript="true" ErrorMessage="Please enter number of tickets." ControlToValidate="ticketNumber"></asp:RequiredFieldValidator>
